@@ -9,9 +9,8 @@ import (
 
 func NewsFeedGet(feed *newsfeed.Repo) gin.HandlerFunc {
 	return func(c *gin.Context){
-		c.JSON(http.StatusOK, map[string]string{
-			"hello": "Binura",
-		})
+		results := feed.GetAll()
+		c.JSON(http.StatusOK,results)
 	}
 
 }
